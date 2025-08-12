@@ -6,11 +6,13 @@ public abstract class Conta implements IConta {
     private int agencia;
     private int numero;
     private double saldo = 0.0;
+    protected Cliente cliente;
 
     // Métodos
-    public Conta() {
+    public Conta(Cliente cliente) {
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
+        this.cliente = cliente;
     }
 
     @Override
@@ -48,5 +50,13 @@ public abstract class Conta implements IConta {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta " +
+                "Titular: " + cliente.getNome() +
+                ", Numero : " + numero +
+                ", Agencia: " + agencia;
     }
 }
