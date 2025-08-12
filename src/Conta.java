@@ -15,17 +15,27 @@ public class Conta implements IConta {
 
     @Override
     public boolean sacar(double valor) {
-        return false;
+        if(valor <= 0 || valor > this.saldo) {
+            return false;
+        } else {
+            this.saldo -= valor;
+            return true;
+        }
     }
 
     @Override
     public boolean depositar(double valor) {
-        return false;
+        if(valor <= 0) {
+            return false;
+        } else {
+            this.saldo += valor;
+            return true;
+        }
     }
 
     @Override
     public boolean transferir(double valor, Conta contaDestino) {
-        return false;
+        return this.sacar(valor) && contaDestino.depositar(valor);
     }
 
     public int getAgencia() {
