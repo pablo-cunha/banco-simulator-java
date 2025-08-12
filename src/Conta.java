@@ -1,11 +1,11 @@
-public class Conta implements IConta {
+public abstract class Conta implements IConta {
     // Atributos
     private static final int AGENCIA_PADRAO = 1;
     private static int SEQUENCIAL = 1;
 
     private int agencia;
     private int numero;
-    private double saldo;
+    private double saldo = 0.0;
 
     // Métodos
     public Conta() {
